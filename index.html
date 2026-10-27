@@ -11,7 +11,7 @@ const SUPABASE_URL='https://hoinugcjgbpisxvqcpnm.supabase.co';
 // Cole somente a Publishable key (sb_publishable_...), NUNCA uma secret key.
 const SUPABASE_PUBLISHABLE_KEY='sb_publishable_Hh49qDOGWTvEFQnUeMgPsA_cie4yZ-X';
 const db=window.supabase&&SUPABASE_PUBLISHABLE_KEY.startsWith('sb_publishable_')?window.supabase.createClient(SUPABASE_URL,SUPABASE_PUBLISHABLE_KEY):null;
-let currentUser=null, editId=null, statementImages=[];
+let currentUser=null, editId=null, statementImages=[], afterImages=[];
 const IMAGE_BUCKET='imagens-questoes';
 const letters=['A','B','C','D','E'];let bank=[],editing=null,editImageData='',quiz=[],answers=[],position=0,startTime=0,lastResult=null;
 const $=id=>document.getElementById(id);const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));

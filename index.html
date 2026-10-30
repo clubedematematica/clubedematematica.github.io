@@ -78,7 +78,7 @@ function toggleAnswerPreview(){
  if(!panel.classList.contains('hidden')){panel.classList.add('hidden');button.textContent='Ver gabarito e resolução';return;}
  const q=quiz[position];panel.replaceChildren();
  const heading=document.createElement('strong');heading.textContent='Gabarito: '+q.correct;panel.append(heading);
- const explanation=document.createElement('p');explanation.className='question-text';explanation.textContent=q.explanation||'Resolução não cadastrada.';panel.append(explanation);
+ if(q.explanation){const explanation=document.createElement('p');explanation.className='question-text';explanation.textContent=q.explanation;panel.append(explanation);}
  (q.resolutionImages||[]).forEach((url,i)=>{const img=document.createElement('img');img.className='question-img';img.src=url;img.alt='Imagem '+(i+1)+' da resolução';img.loading='lazy';panel.append(img)});
  panel.classList.remove('hidden');button.textContent='Ocultar gabarito e resolução';
 }

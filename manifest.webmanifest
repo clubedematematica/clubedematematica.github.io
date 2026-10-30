@@ -1,22 +1,22 @@
 {
-  "name": "Clube de Matemática — Professor Ismael Barros",
+  "name": "Clube de Matemática",
   "short_name": "Clube Matemática",
-  "description": "Simulados do ENEM com gabaritos, resoluções e cronômetro.",
+  "description": "Simulados de Matemática do ENEM com gabaritos e resoluções.",
   "lang": "pt-BR",
-  "start_url": "./",
-  "scope": "./",
+  "start_url": "/",
+  "scope": "/",
   "display": "standalone",
   "background_color": "#f4f8f9",
   "theme_color": "#12324c",
   "icons": [
     {
-      "src": "icons/icon-192.png",
+      "src": "/icon-192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "icons/icon-512.png",
+      "src": "/icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"

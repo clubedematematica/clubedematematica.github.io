@@ -25,12 +25,17 @@ function areaOf(q){return q.area||'Matemática'}
 function chooseArea(area){selectedArea=area;renderAll()}
 function renderAreas(){
  const box=$('areaPicker');box.replaceChildren();
- for(const [area,disciplines] of Object.entries(AREA_DISCIPLINES)){
+ // Mostrar na página inicial somente áreas com questões válidas cadastradas.
+ const availableAreas=new Set(bank.map(q=>areaOf(q)));
+ const visibleAreas=Object.entries(AREA_DISCIPLINES).filter(([area])=>availableAreas.has(area));
+ if(!availableAreas.has(selectedArea))selectedArea=visibleAreas[0]?.[0]||'Matemática';
+ for(const [area,disciplines] of visibleAreas){
   const btn=document.createElement('button');btn.type='button';btn.className='area-choice'+(area===selectedArea?' selected':'');btn.setAttribute('aria-pressed',String(area===selectedArea));
   const title=document.createElement('strong');title.textContent=(area==='Matemática'?'📐 ':area==='Ciências Humanas'?'🌎 ':area==='Linguagens'?'📚 ':'🔬 ')+area;
   const description=document.createElement('small');description.textContent=area==='Matemática'?'Área principal':disciplines.join(' • ');
   btn.append(title,description);btn.onclick=()=>chooseArea(area);box.append(btn);
  }
+ if(!visibleAreas.length){const notice=document.createElement('p');notice.className='muted';notice.textContent='Nenhuma área possui questões cadastradas no momento.';box.append(notice)}
 }
 function updateAdminDisciplines(preferred){
  const area=$('qArea').value,select=$('qDiscipline');select.replaceChildren();

@@ -197,10 +197,20 @@ init();
   const overlay=document.getElementById('bannerIncentivoOverlay');
   const closeButton=document.getElementById('bannerIncentivoFechar');
   if(!overlay||!closeButton)return;
+  const sessionKey='bannerClubeExibido';
+  try {
+    if(sessionStorage.getItem(sessionKey)==='sim'){
+      overlay.hidden=true;
+      return;
+    }
+    sessionStorage.setItem(sessionKey,'sim');
+  } catch(error) {
+    // Continua exibindo normalmente se o armazenamento estiver indisponível.
+  }
   function closeBanner(){overlay.hidden=true;}
   closeButton.addEventListener('click',closeBanner);
   overlay.addEventListener('click',function(event){if(event.target===overlay)closeBanner();});
-  window.setTimeout(closeBanner,7000);
+  window.setTimeout(closeBanner,9000);
 })();
 </script>
 </body></html>

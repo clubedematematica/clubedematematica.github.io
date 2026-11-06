@@ -22,6 +22,27 @@
 #enemBoaProva img{width:100%;height:auto;display:block;border-radius:14px;box-shadow:0 3px 12px #12324c14}
 @media(max-width:600px){#enemBoaProva{padding:0 12px;margin:12px auto}#enemBoaProva img{border-radius:9px}}
 </style>
+
+<style id="refinamento-visual-enem-2026">
+/* Refinamento estritamente visual: preserva a estrutura e os controles. */
+:root{--navy:#103657;--gold:#f2b900}
+header{box-shadow:0 2px 12px rgba(18,50,76,.045)}
+.head{gap:20px}
+nav{gap:9px}
+nav button,nav .btn{border-radius:11px;transition:box-shadow .18s ease,transform .18s ease}
+nav button:hover,nav .btn:hover{box-shadow:0 4px 13px rgba(18,50,76,.12);transform:translateY(-1px)}
+.pwa-install-banner{background:linear-gradient(105deg,#fff9e9,#fffdf6);border-color:#f1d276;border-radius:14px;box-shadow:0 2px 10px rgba(18,50,76,.035)}
+.pwa-install-banner button{border-radius:11px}
+#enemBoaProva{margin-top:18px;margin-bottom:20px}
+#enemBoaProva img{border:2px solid #fff;border-radius:20px;box-shadow:0 6px 22px rgba(18,50,76,.15),0 0 0 1px rgba(221,171,40,.27)}
+.hero{background:linear-gradient(115deg,#103658 0%,#16456a 58%,#0e3656 100%);border:1px solid rgba(255,255,255,.1);box-shadow:0 7px 22px rgba(18,50,76,.09);border-radius:20px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;right:-35px;bottom:-95px;width:380px;height:200px;border-radius:50%;border:1px solid rgba(86,175,228,.16);box-shadow:0 0 0 18px rgba(86,175,228,.035),0 0 0 38px rgba(86,175,228,.03);pointer-events:none}
+.hero>div{position:relative;z-index:1}
+.hero h1{letter-spacing:-.7px}
+.hero .symbol{color:#ffca19;text-shadow:0 3px 9px rgba(0,0,0,.12)}
+@media(max-width:600px){#enemBoaProva{margin:14px auto 17px}#enemBoaProva img{border-radius:12px}.hero{border-radius:16px}.hero h1{letter-spacing:-.3px}nav button,nav .btn{font-size:13px;padding:10px 12px}}
+@media(prefers-reduced-motion:reduce){nav button,nav .btn{transition:none}nav button:hover,nav .btn:hover{transform:none}}
+</style>
 </head><body>
 <div id="bannerIncentivoOverlay" hidden role="dialog" aria-modal="true" aria-label="Mensagem de incentivo do Clube de Matemática">
   <div id="bannerIncentivoBox">

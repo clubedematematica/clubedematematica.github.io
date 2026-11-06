@@ -209,7 +209,7 @@ init();
   if(!overlay||!closeButton)return;
   const sessionKey='bannerClubeExibido';
   const diaSP=new Intl.DateTimeFormat('en-CA',{timeZone:'America/Sao_Paulo',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
-  if(diaSP==='2026-11-07'||diaSP==='2026-11-08')return;
+  if(diaSP>='2026-11-06' && diaSP<='2026-11-15')return;
   try {
     if(sessionStorage.getItem(sessionKey)==='sim'){
       overlay.hidden=true;
@@ -297,10 +297,10 @@ window.exportStats=function(){const rows=read();if(!rows.length){alert('Ainda nÃ
 </script><script id="enem-boa-prova-datas">
 (function(){
   const data=new Intl.DateTimeFormat('en-CA',{timeZone:'America/Sao_Paulo',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
-  const ativo=(data==='2026-11-07'||data==='2026-11-08');
+  const ativo=(data>='2026-11-06' && data<='2026-11-15');
   const banner=document.getElementById('enemBoaProva');
   if(banner)banner.hidden=!ativo;
-  // Evita dois avisos de boa prova sobrepostos durante o fim de semana.
+  // Evita dois avisos de boa prova sobrepostos durante o perÃ­odo do ENEM.
   if(ativo){const popup=document.getElementById('bannerIncentivoOverlay');if(popup)popup.remove();}
 })();
 </script>

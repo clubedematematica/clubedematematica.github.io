@@ -1,16 +1,18 @@
 <!doctype html><html lang="pt-BR"><head>
 <script id="manutencao-programada">
 (function () {
-  // Início: 18/11/2026, 00:00, horário de Brasília.
-  var agora = new Date();
-  var partes = new Intl.DateTimeFormat('en-US', {timeZone:'America/Sao_Paulo',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',hourCycle:'h23'}).formatToParts(agora);
-  var campos = {};
-  partes.forEach(function(p){campos[p.type]=p.value;});
-  var data = campos.year+'-'+campos.month+'-'+campos.day;
-  if (data >= '2026-11-18') {
-    document.documentElement.style.visibility='hidden';
-    window.location.replace('./manutencao.html');
+  // Ativação: 15/11/2026 às 21:00, horário de Brasília.
+  var inicio = Date.parse('2026-11-15T21:00:00-03:00');
+  function verificarManutencao() {
+    if (Date.now() >= inicio) {
+      document.documentElement.style.visibility = 'hidden';
+      window.location.replace('./manutencao.html');
+    }
   }
+  verificarManutencao();
+  // Também muda para manutenção se o visitante deixar a página aberta.
+  window.setInterval(verificarManutencao, 15000);
+  window.addEventListener('pageshow', verificarManutencao);
 })();
 </script>
 
